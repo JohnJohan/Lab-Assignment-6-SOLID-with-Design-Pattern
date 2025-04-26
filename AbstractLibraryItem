@@ -1,0 +1,25 @@
+public abstract class AbstractLibraryItem implements LibraryResource {
+    protected String title;
+    protected boolean checkedOut;
+    
+    public AbstractLibraryItem(String title) {
+        this.title = title;
+        this.checkedOut = false;
+    }
+    
+    @Override
+    public String getTitle() {
+        return title;
+    }
+    
+    @Override
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+    
+    @Override
+    public void checkIn() {
+        this.checkedOut = false;
+        System.out.println(getType() + " '" + title + "' has been checked in");
+    }
+}
