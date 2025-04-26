@@ -1,0 +1,20 @@
+public class Journal extends AbstractLibraryItem {
+    private String issue;
+    
+    public Journal(String title, String issue) {
+        super(title);
+        this.issue = issue;
+    }
+    
+    @Override
+    public String getType() {
+        return "Journal";
+    }
+    
+    @Override
+    public void checkOut(String borrower) {
+        this.checkedOut = true;
+        System.out.println("Journal '" + title + "' (Issue: " + issue + 
+                         ") checked out by " + borrower);
+    }
+}
