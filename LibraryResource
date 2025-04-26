@@ -1,0 +1,7 @@
+public interface LibraryResource {
+    String getTitle();
+    String getType();
+    void checkOut(String borrower);
+    void checkIn();
+    boolean isCheckedOut();
+}
