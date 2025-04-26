@@ -1,0 +1,36 @@
+public class LibrarySystemTest {
+    public static void main(String[] args) {
+        // Initialize repository
+        LibraryRepository repository = new LibraryRepository();
+        
+        // Add resources
+        repository.addResource(new Book("Clean Code", "Robert Martin"));
+        repository.addResource(new Journal("Science Journal", "Vol. 45"));
+        repository.addResource(new Thesis("AI Applications", "Alice Johnson"));
+        
+        // Create student
+        Student student = new Student("John Doe", "S12345");
+        
+        // Test borrowing resources
+        LibraryResource book = repository.findResourceByTitle("Clean Code");
+        student.borrowResource(book);
+        
+        LibraryResource journal = repository.findResourceByTitle("Science Journal");
+        student.borrowResource(journal);
+        
+        // Try to borrow again (should fail)
+        student.borrowResource(book);
+        
+        // Test returning
+        student.returnResource(book);
+        
+        // Now can borrow again
+        student.borrowResource(book);
+        
+        // Print all resources
+        System.out.println("\nAll Library Resources:");
+        repository.getAllResources().forEach(r -> 
+            System.out.println(r.getType() + ": " + r.getTitle() + 
+                             " - " + (r.isCheckedOut() ? "Checked Out" : "Available")));
+    }
+}
