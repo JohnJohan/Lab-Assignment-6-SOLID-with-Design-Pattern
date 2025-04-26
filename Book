@@ -1,0 +1,20 @@
+public class Book extends AbstractLibraryItem {
+    private String author;
+    
+    public Book(String title, String author) {
+        super(title);
+        this.author = author;
+    }
+    
+    @Override
+    public String getType() {
+        return "Book";
+    }
+    
+    @Override
+    public void checkOut(String borrower) {
+        this.checkedOut = true;
+        System.out.println("Book '" + title + "' by " + author + 
+                         " checked out by " + borrower);
+    }
+}
